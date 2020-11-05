@@ -12,10 +12,10 @@ if(isset($_POST['update']))
     $alamat=$_POST['alamat'];
 
     // update user data
-    $result = mysqli_query($mysqli, "UPDATE guest SET name='$nama_pengunjung',alamat='$alamat',no_HP='$no_HP' WHERE id=$id");
+    $result = mysqli_query($mysqli, "UPDATE guest SET nama_pengunjung='$nama_pengunjung',alamat='$alamat',no_HP='$no_HP' WHERE id=$id");
 
     // Redirect to homepage to display updated user in list
-    header("Location: index.php");
+    header("Location: http://localhost/tugaspwebGB/index.php");
 }
 ?>
 <?php
@@ -35,6 +35,8 @@ while($user_data = mysqli_fetch_array($result))
 ?>
 <html>
 <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <style>
         @import "http://fonts.googleapis.com/css?family=Droid+Serif";
         /* Above line is used for online google font */
@@ -76,26 +78,25 @@ while($user_data = mysqli_fetch_array($result))
         width:100%;
         padding:8px;
         margin-top:10px;
-        background-color:#474242;
+        background-color:lightseagreen;
         cursor:pointer;
         color:#fff;
-        border:2px solid #adadad;
         font-size:18px;
         font-weight:700;
         font-family:'Droid Serif',serif;
         margin-bottom:15px
         }
         #btn:hover {
-        background-color:#adadad;
-        border:2px solid #474242
+        background-color:lightseagreen;
+        border:2px solid seagreen
         }
 
         @import url('https://fonts.googleapis.com/css?family=Source+Code+Pro');
         .header {
           overflow: hidden;
-          background-color:rgb(118, 123, 124);
+          background-color:lightseagreen;
           padding: 20px 10px;
-          
+          margin-bottom: 100px;
         }
         .header a {
           float: left;
@@ -114,7 +115,7 @@ while($user_data = mysqli_fetch_array($result))
         }
 
         .header a.active {
-          background-color:rgb(66, 69, 70);
+          background-color:green;
           color: white;
         }
 
@@ -151,7 +152,7 @@ while($user_data = mysqli_fetch_array($result))
     <title>Edit User Data</title>
 </head>
 
-<body bgcolor="#99CCFF">
+<body>
 <div class="header">
       <a href="#default" class="logo">Guest Book</a>
         <div class="header-right">
@@ -160,22 +161,22 @@ while($user_data = mysqli_fetch_array($result))
     </div>
 
     <form name="update_user" method="post" action="edit.php" onsubmit="return validateForm()">
-        <table width="25%" border="0" align="center" style="margin-top: 30px;">
+        <table width="25%" border="0" align="center" style="margin-top: 30px; font-size: 20px; font-weight:bold">
             <tr> 
-                <td>Nama Pengunjung</td>
+                <td>Nama Pengunjung :</td>
                 <td><input type="text" name="nama_pengunjung" value=<?php echo $nama_pengunjung;?>></td>
             </tr>
             <tr> 
-                <td>Alamat</td>
+                <td>Alamat :</td>
                 <td><input type="text" name="alamat" value=<?php echo $alamat;?>></td>
             </tr>
             <tr> 
-                <td>Nomor HP</td>
+                <td>Nomor HP :</td>
                 <td><input type="text" name="no_HP" value=<?php echo $no_HP;?>></td>
             </tr>
             <tr>
                 <td><input type="hidden" name="id" value=<?php echo $_GET['id'];?>></td>
-                <td><input type="submit" name="update" value="Update"></td>
+                <td><input id="btn" type="submit" name="update" value="Update"></td>
             </tr>
         </table>
     </form>

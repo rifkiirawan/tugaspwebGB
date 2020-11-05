@@ -1,8 +1,10 @@
 <html>
 <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
 <style>
         @import "http://fonts.googleapis.com/css?family=Droid+Serif";
-        /* Above line is used for online google font */
         
         input {
         width:100%;
@@ -17,7 +19,7 @@
         width:100%;
         padding:8px;
         margin-top:10px;
-        background-color:#474242;
+        background-color:lightseagreen;
         cursor:pointer;
         color:#fff;
         font-size:18px;
@@ -32,7 +34,7 @@
         @import url('https://fonts.googleapis.com/css?family=Source+Code+Pro');
         .header {
           overflow: hidden;
-          background-color:rgb(118, 123, 124);
+          background-color:lightseagreen;
           padding: 20px 10px;
           
         }
@@ -53,7 +55,7 @@
         }
 
         .header a.active {
-          background-color:rgb(66, 69, 70);
+          background-color:green;
           color: white;
         }
 
@@ -68,29 +70,10 @@
 
         .error {color: #FF0000;}
     </style> 
-    <script>
-        function validateForm() {
-        var x = document.forms["form1"]["nama_pengunjung"].value;
-        var y = document.forms["form1"]["alamat"].value;
-        var z = document.forms["form1"]["no_HP"].value;
-        if (x == "" || x == null) {
-            alert("Nama Tidak Boleh Kosong");
-            return false;
-        }
-        else if(y == "" || y == null) {
-            alert("Alamat Tidak Boleh Kosong");
-            return false;
-        }
-        else if(z == "" || z == null) {
-            alert("Nomor HP Tidak Boleh Kosong");
-            return false;
-        }
-        }
-    </script>
     <title>Add Users</title>
 </head>
 
-<body bgcolor="#99CCFF">
+<body>
     <div class="header">
       <a href="#default" class="logo">Guest Book</a>
         <div class="header-right">
@@ -99,19 +82,19 @@
         </div>
     </div>
 
-    <form action="add.php" method="post" onsubmit="return validateForm()" name="form1" required>
-        <table width="25%" border="0" align="center" style="margin-top: 30px;">
+    <form action="add.php" method="post" name="form1" required>
+        <table width="25%" border="0" align="center" style="margin-top: 30px; font-size:18px;font-weight:700;">
             <tr> 
                 <td>Nama Pengunjung :</td>
-                <td><input type="text" name="nama_pengunjung"></td>
+                <td><input required type="text" name="nama_pengunjung"></td>
             </tr>
             <tr> 
                 <td>Alamat :</td>
-                <td><input type="text" name="alamat"></td>
+                <td><input required type="text" name="alamat"></td>
             </tr>
             <tr> 
                 <td>Nomor HP :</td>
-                <td><input type="text" name="no_HP"></td>
+                <td><input required type="text" name="no_HP"></td>
             </tr>
             <tr> 
                 <td></td>
@@ -137,7 +120,7 @@
         if($nama_pengunjung !=''&& $alamat !=''&& $no_HP !='')
         {
             //  To redirect form on a particular page
-            header("Location:http://localhost/tugas-pweb/index.php");
+            header("Location:http://localhost/tugaspwebGB/index.php");
         }
         // Show message when user added
         // echo "User added successfully.";

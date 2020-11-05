@@ -8,24 +8,31 @@ $result = mysqli_query($mysqli, "SELECT * FROM guest ORDER BY id DESC");
 
 <html>
 <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <style>
         table, td, th {  
-        border: 1px solid #ddd;
-        text-align: left;
+          border-bottom: 1px solid #ddd;
+          text-align: left;
         }
 
         table {
         border-collapse: collapse;
         width: 80%;
-        margin-top: 20px;
+        margin-top: 100px;
         }
 
         th, td {
         padding: 15px;
+        /* border-bottom: 1px solid #ddd; */
         }
 
         th{
-            background-color: white;
+            background-color: lightseagreen;
+        }
+
+        td{
+          background-color: lightcyan;
         }
 
         tr:hover {background-color:#f5f5f5;}
@@ -33,7 +40,7 @@ $result = mysqli_query($mysqli, "SELECT * FROM guest ORDER BY id DESC");
         @import url('https://fonts.googleapis.com/css?family=Source+Code+Pro');
         .header {
           overflow: hidden;
-          background-color:rgb(118, 123, 124);
+          background-color:lightseagreen;
           padding: 20px 10px;
           
         }
@@ -54,7 +61,7 @@ $result = mysqli_query($mysqli, "SELECT * FROM guest ORDER BY id DESC");
         }
 
         .header a.active {
-          background-color:rgb(66, 69, 70);
+          background-color:green;
           color: white;
         }
 
@@ -98,8 +105,8 @@ $result = mysqli_query($mysqli, "SELECT * FROM guest ORDER BY id DESC");
     <title>Homepage</title>
 </head>
 
-<body bgcolor="#99CCFF">
-<div class="header">
+<body>
+    <div class="header">
       <a href="#default" class="logo">Guest Book</a>
         <div class="header-right">
           <a class="active" href="index.php">Home</a>
